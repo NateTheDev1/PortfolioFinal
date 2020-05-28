@@ -4,6 +4,8 @@ import { Container, Fab, Avatar } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import meBest from "../images/mebest.jpg";
+import { setPage } from "../actions/actions";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -70,7 +72,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MainWindow = () => {
+const MainWindow = ({ page, setPage }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -80,7 +82,7 @@ const MainWindow = () => {
           My name is Nathaniel Richards and I am a <br />
           <span>Fullstack Web Developer</span>
         </h1>
-        <a href="#about">
+        <a href="#about" onClick={() => setPage("about")}>
           <Fab
             aria-label="next"
             variant="extended"
@@ -117,7 +119,7 @@ const MainWindow = () => {
             <img src={meBest} className={classes.meBest} />
           </div>
         </div>
-        <a href="#projects">
+        <a href="#projects" onClick={() => setPage("projects")}>
           <Fab
             aria-label="next"
             variant="extended"
@@ -133,4 +135,10 @@ const MainWindow = () => {
   );
 };
 
-export default MainWindow;
+const mapStateToProps = (state) => {
+  return {
+    page: state.page,
+  };
+};
+
+export default connect(mapStateToProps, { setPage })(MainWindow);

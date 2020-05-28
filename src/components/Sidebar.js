@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
+import { setPage } from "../actions/actions";
 
 const useStyles = makeStyles({
   root: {
@@ -34,24 +35,39 @@ const useStyles = makeStyles({
   },
 });
 
-const Sidebar = ({ page }) => {
+const Sidebar = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <a href="#home">
+      <a href="#home" onClick={() => props.setPage("home")}>
         <h2>Home</h2>
       </a>
-      {page === "Home" ? <hr id="nav-hr" /> : null}
-      <h2>About</h2>
-      {page === "About" ? <hr id="nav-hr" /> : null}
-      <h2>Projects</h2>
-      {page === "Projects" ? <hr id="nav-hr" /> : null}
-      <h2>Skills</h2>
-      {page === "Skills" ? <hr id="nav-hr" /> : null}
-      <h2>Contact</h2>
-      {page === "Contact" ? <hr id="nav-hr" /> : null}
-      <h2>Resume</h2>
-      {page === "Resume" ? <hr id="nav-hr" /> : null}
+      {props.page === "home" ? <hr id="nav-hr" /> : null}
+
+      <a href="#about" onClick={() => props.setPage("about")}>
+        <h2>About</h2>
+      </a>
+      {props.page === "about" ? <hr id="nav-hr" /> : null}
+
+      <a href="#projects" onClick={() => props.setPage("projects")}>
+        <h2>Projects</h2>
+      </a>
+      {props.page === "projects" ? <hr id="nav-hr" /> : null}
+
+      <a href="#skills" onClick={() => props.setPage("skills")}>
+        <h2>Skills</h2>
+      </a>
+      {props.page === "skills" ? <hr id="nav-hr" /> : null}
+
+      <a href="#contact" onClick={() => props.setPage("contact")}>
+        <h2>Contact</h2>
+      </a>
+      {props.page === "contact" ? <hr id="nav-hr" /> : null}
+
+      <a href="#resume" onClick={() => props.setPage("resume")}>
+        <h2>Resume</h2>
+      </a>
+      {props.page === "resume" ? <hr id="nav-hr" /> : null}
     </div>
   );
 };
@@ -62,4 +78,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(Sidebar);
+export default connect(mapStateToProps, { setPage })(Sidebar);

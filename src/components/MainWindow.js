@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -11,6 +11,10 @@ import {
   Typography,
   CardActions,
   Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -98,6 +102,13 @@ const useStyles = makeStyles({
   card: {
     maxWidth: 280,
   },
+  dialog: {
+    "& .MuiDialog-paper": {
+      color: "white",
+      backgroundColor: "#181818",
+    },
+  },
+
   // btn: {
   //   backgroundColor: "black",
   //   color: "white",
@@ -110,6 +121,7 @@ const useStyles = makeStyles({
 });
 
 const MainWindow = ({ page, setPage }) => {
+  const [dialogState, setDialogState] = useState({ professor: true });
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -191,7 +203,13 @@ const MainWindow = ({ page, setPage }) => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" className={classes.btn}>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, professor: true })
+                }
+              >
                 View Full
               </Button>
               <a href="https://gobetterprofessor.netlify.app" target="_blank">
@@ -201,54 +219,61 @@ const MainWindow = ({ page, setPage }) => {
               </a>
             </CardActions>
           </Card>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                className={classes.media}
-                image={require("../images/betterprofessorpreview.png")}
-                title="Better Professor Marketing Site"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Better Professor Marketing Site
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" className={classes.btn}>
-                View Full
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, professor: false })}
+            open={dialogState.professor}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, professor: false })
+              }
+            >
+              Better Professor Marketing Site
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Better Professor was made during a build week for an app called
+                "Better Professor", an app allowing professors and students to
+                communicate better.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                I worked with my team on choosing certain colors, fonts, and
+                styles to build the marketing site. I have never been a designer
+                but I received experience using Figma to design this site.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "30%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-less"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <Button style={{ color: "white" }}>Done</Button>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, professor: false })
+                }
+              >
+                Done
               </Button>
-            </CardActions>
-          </Card>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                className={classes.media}
-                image={require("../images/betterprofessorpreview.png")}
-                title="Better Professor Marketing Site"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Better Professor Marketing Site
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" className={classes.btn}>
-                View Full
-              </Button>
-            </CardActions>
-          </Card>
+            </DialogActions>
+          </Dialog>
         </div>
         <a href="#skills" onClick={() => setPage("skills")}>
           <Fab

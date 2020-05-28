@@ -2,16 +2,23 @@ import React from "react";
 import { connect } from "react-redux";
 import Sidebar from "./components/Sidebar";
 import { makeStyles } from "@material-ui/core";
+import MainWindow from "./components/MainWindow";
 
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    display: "flex",
+    flexDirection: "row",
+    height: "100vh",
+    width: "100%",
+  },
 });
 
 const App = () => {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <Sidebar />
+      <MainWindow />
     </div>
   );
 };

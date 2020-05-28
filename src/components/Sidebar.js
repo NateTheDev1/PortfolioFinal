@@ -41,17 +41,17 @@ const Sidebar = ({ page }) => {
       <a href="#home">
         <h2>Home</h2>
       </a>
-      {page === "Home" ? <hr /> : null}
+      {page === "Home" ? <hr id="nav-hr" /> : null}
       <h2>About</h2>
-      {page === "About" ? <hr /> : null}
+      {page === "About" ? <hr id="nav-hr" /> : null}
       <h2>Projects</h2>
-      {page === "Projects" ? <hr /> : null}
+      {page === "Projects" ? <hr id="nav-hr" /> : null}
       <h2>Skills</h2>
-      {page === "Skills" ? <hr /> : null}
+      {page === "Skills" ? <hr id="nav-hr" /> : null}
       <h2>Contact</h2>
-      {page === "Contact" ? <hr /> : null}
+      {page === "Contact" ? <hr id="nav-hr" /> : null}
       <h2>Resume</h2>
-      {page === "Resume" ? <hr /> : null}
+      {page === "Resume" ? <hr id="nav-hr" /> : null}
     </div>
   );
 };

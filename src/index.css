@@ -8,9 +8,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#intro-text {
+  animation: type 3s steps(73);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#nav-hr {
+  animation: hrGrow 1s;
+}
+
+@keyframes hrGrow {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes type {
+  0% {
+    width: 0ch;
+  }
+
+  100% {
+    width: 73ch;
+  }
 }

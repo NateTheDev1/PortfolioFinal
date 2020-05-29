@@ -748,12 +748,12 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  color: "#244C7D",
+                  color: "#F0D91C",
                 }}
               >
-                LESS
+                Express
                 <i
-                  class="fab fa-less"
+                  class="fab fa-node-js"
                   style={{ marginTop: "10px", fontSize: "2rem" }}
                 ></i>
               </Typography>
@@ -762,12 +762,12 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  color: "#543B79",
+                  color: "#68A063",
                 }}
               >
-                Bootstrap & ReactStrap
+                Node.js
                 <i
-                  class="fab fa-bootstrap"
+                  class="fab fa-node"
                   style={{ marginTop: "10px", fontSize: "2rem" }}
                 ></i>
               </Typography>
@@ -776,12 +776,12 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  color: "#E76C72",
+                  color: "#3D9B2F",
                 }}
               >
-                Materialize CSS
+                MongoDB
                 <i
-                  class="fas fa-scroll"
+                  class="fas fa-database"
                   style={{ marginTop: "10px", fontSize: "2rem" }}
                 ></i>
               </Typography>

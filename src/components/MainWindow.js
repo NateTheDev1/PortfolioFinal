@@ -38,7 +38,6 @@ const useStyles = makeStyles({
     },
   },
   home: {
-    marginTop: "20%",
     marginLeft: "5%",
     fontWeight: "700",
     marginBottom: "10%",
@@ -95,7 +94,7 @@ const useStyles = makeStyles({
     marginTop: "5%",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
     marginBottom: "5%",
   },
@@ -108,20 +107,13 @@ const useStyles = makeStyles({
       backgroundColor: "#181818",
     },
   },
-
-  // btn: {
-  //   backgroundColor: "black",
-  //   color: "white",
-
-  //   "&:hover": {
-  //     backgroundColor: "gray",
-  //     color: "black",
-  //   },
-  // },
 });
 
 const MainWindow = ({ page, setPage }) => {
-  const [dialogState, setDialogState] = useState({ professor: true });
+  const [dialogState, setDialogState] = useState({
+    professor: false,
+    urbanize: true,
+  });
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -194,7 +186,7 @@ const MainWindow = ({ page, setPage }) => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Better Professor Marketing Site
+                  Better Professor
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   A marketing site built for a school project. The site was
@@ -262,7 +254,13 @@ const MainWindow = ({ page, setPage }) => {
               </div>
             </DialogContent>
             <DialogActions>
-              <Button style={{ color: "white" }}>Done</Button>
+              <a
+                href="https://github.com/NateTheDev1/better-professor"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
               <Button
                 style={{ color: "white" }}
                 autoFocus
@@ -274,6 +272,42 @@ const MainWindow = ({ page, setPage }) => {
               </Button>
             </DialogActions>
           </Dialog>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "black" }}
+                component="img"
+                className={classes.media}
+                image={require("../images/urbanizepreview.PNG")}
+                title="Better Professor Marketing Site"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Urbanize Web App
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  A web app created using an unofficial Urban Dictionary API.
+                  Allows the user to search for definitions and save them.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, urbanize: true })
+                }
+              >
+                View Full
+              </Button>
+              <a href="https://urbanize.netlify.app/" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
         </div>
         <a href="#skills" onClick={() => setPage("skills")}>
           <Fab

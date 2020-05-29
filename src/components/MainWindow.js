@@ -85,6 +85,14 @@ const useStyles = makeStyles({
   projects: {
     marginBottom: "10%",
     marginLeft: "5%",
+
+    "& hr": {
+      color: "black",
+      width: "25%",
+      height: "2px",
+      backgroundColor: "white",
+      margin: "0",
+    },
   },
   media: {
     height: 140,
@@ -107,12 +115,24 @@ const useStyles = makeStyles({
       backgroundColor: "#181818",
     },
   },
+  skills: {
+    marginBottom: "10%",
+    marginLeft: "5%",
+
+    "& hr": {
+      color: "black",
+      width: "25%",
+      height: "2px",
+      backgroundColor: "white",
+      margin: "0",
+    },
+  },
 });
 
 const MainWindow = ({ page, setPage }) => {
   const [dialogState, setDialogState] = useState({
     professor: false,
-    urbanize: true,
+    urbanize: false,
   });
   const classes = useStyles();
   return (
@@ -308,8 +328,91 @@ const MainWindow = ({ page, setPage }) => {
               </a>
             </CardActions>
           </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, urbanize: false })}
+            open={dialogState.urbanize}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, urbanize: false })
+              }
+            >
+              Urbanize Web App
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Urbanize was a personal project created using the unofficial
+                Urban Dictionary API. I found the API while looking for another
+                fun project to build out. This project took a duration of around
+                2 days. This project was built using the framework 'React'.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                It uses localStorage to persist user data and is created to be a
+                'no-setup' style app with zero account creation. The user can
+                search for definitions as well as save the ones they like most
+                to their library. After receiving feedback about how some users
+                do not know any 'urban' words, I created a random word generator
+                to automatically search 1 word out of a collection sent back
+                from the API.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "40%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/urbanize"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, urbanize: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
         <a href="#skills" onClick={() => setPage("skills")}>
+          <Fab
+            aria-label="next"
+            variant="extended"
+            className={classes.next}
+            size="medium"
+          >
+            Next
+            <ArrowRightIcon />
+          </Fab>
+        </a>
+      </Container>
+      <Container maxWidth="md" className={classes.skills} id="skills">
+        <h2 style={{ color: "#F9A825" }}>My Skills</h2>
+        <hr />
+        <a href="#contact" onClick={() => setPage("contact")}>
           <Fab
             aria-label="next"
             variant="extended"

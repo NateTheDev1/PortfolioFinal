@@ -15,6 +15,9 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
 } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -22,6 +25,9 @@ import meBest from "../images/mebest.jpg";
 import professorPreview from "../images/betterprofessorpreview.png";
 import { setPage } from "../actions/actions";
 import { connect } from "react-redux";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import WebIcon from "@material-ui/icons/Web";
+import ComputerIcon from "@material-ui/icons/Computer";
 
 const useStyles = makeStyles({
   root: {
@@ -116,6 +122,7 @@ const useStyles = makeStyles({
     },
   },
   skills: {
+    fontFamily: "Poppins",
     marginBottom: "10%",
     marginLeft: "5%",
 
@@ -127,6 +134,15 @@ const useStyles = makeStyles({
       margin: "0",
     },
   },
+  expandable: {
+    marginTop: "5%",
+    marginBottom: "5%",
+  },
+  panel: {
+    backgroundColor: "#292929",
+    color: "white",
+    marginBottom: "2%",
+  },
 });
 
 const MainWindow = ({ page, setPage }) => {
@@ -134,6 +150,12 @@ const MainWindow = ({ page, setPage }) => {
     professor: false,
     urbanize: false,
   });
+
+  const [expandedState, setExpandedState] = useState({
+    core: true,
+    frontend: false,
+  });
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -412,6 +434,162 @@ const MainWindow = ({ page, setPage }) => {
       <Container maxWidth="md" className={classes.skills} id="skills">
         <h2 style={{ color: "#F9A825" }}>My Skills</h2>
         <hr />
+        <div className={classes.expandable}>
+          <ExpansionPanel
+            className={classes.panel}
+            expanded={expandedState.core}
+            onChange={() =>
+              setExpandedState({ ...expandedState, core: !expandedState.core })
+            }
+          >
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "13%",
+                  justifyContent: "space-between",
+                }}
+              >
+                Core Skills <WebIcon />
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "0 auto",
+              }}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                HTML5
+                <i
+                  class="fab fa-html5"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                CSS
+                <i
+                  class="fab fa-css3-alt"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                JavaScript
+                <i
+                  class="fab fa-js-square"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+          <ExpansionPanel
+            className={classes.panel}
+            expanded={expandedState.frontend}
+            onChange={() =>
+              setExpandedState({
+                ...expandedState,
+                frontend: !expandedState.frontend,
+              })
+            }
+          >
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "24%",
+                  justifyContent: "space-between",
+                }}
+              >
+                Front End Development <ComputerIcon />
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "0 auto",
+              }}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                React
+                <i
+                  class="fab fa-react"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                Redux
+                <i
+                  class="fas fa-sync-alt"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                Electron
+                <i
+                  class="fas fa-atom"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                Context API
+                <i
+                  class="fas fa-search"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </div>
         <a href="#contact" onClick={() => setPage("contact")}>
           <Fab
             aria-label="next"

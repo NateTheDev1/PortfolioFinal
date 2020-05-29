@@ -28,6 +28,9 @@ import { connect } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import WebIcon from "@material-ui/icons/Web";
 import ComputerIcon from "@material-ui/icons/Computer";
+import PaletteIcon from "@material-ui/icons/Palette";
+import CreateIcon from "@material-ui/icons/Create";
+import StorageIcon from "@material-ui/icons/Storage";
 
 const useStyles = makeStyles({
   root: {
@@ -151,10 +154,11 @@ const MainWindow = ({ page, setPage }) => {
     urbanize: false,
   });
 
-  const [expandedState, setExpandedState] = useState({
-    core: true,
-    frontend: false,
-  });
+  const [expandedState, setExpandedState] = useState("core");
+
+  const handleExpansion = (panel) => (event, isExpanded) => {
+    setExpandedState(isExpanded ? panel : false);
+  };
 
   const classes = useStyles();
   return (
@@ -437,10 +441,8 @@ const MainWindow = ({ page, setPage }) => {
         <div className={classes.expandable}>
           <ExpansionPanel
             className={classes.panel}
-            expanded={expandedState.core}
-            onChange={() =>
-              setExpandedState({ ...expandedState, core: !expandedState.core })
-            }
+            expanded={expandedState === "core"}
+            onChange={handleExpansion("core")}
           >
             <ExpansionPanelSummary
               expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
@@ -468,6 +470,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#DE4B25",
                 }}
               >
                 HTML5
@@ -481,6 +484,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#2B62EB",
                 }}
               >
                 CSS
@@ -494,6 +498,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#EED818",
                 }}
               >
                 JavaScript
@@ -506,13 +511,8 @@ const MainWindow = ({ page, setPage }) => {
           </ExpansionPanel>
           <ExpansionPanel
             className={classes.panel}
-            expanded={expandedState.frontend}
-            onChange={() =>
-              setExpandedState({
-                ...expandedState,
-                frontend: !expandedState.frontend,
-              })
-            }
+            expanded={expandedState === "frontend"}
+            onChange={handleExpansion("frontend")}
           >
             <ExpansionPanelSummary
               expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
@@ -540,6 +540,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#48CFF8",
                 }}
               >
                 React
@@ -553,6 +554,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#6B3BB4",
                 }}
               >
                 Redux
@@ -566,6 +568,7 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#9CE6F4",
                 }}
               >
                 Electron
@@ -579,11 +582,206 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  color: "#66BB6A",
                 }}
               >
                 Context API
                 <i
                   class="fas fa-search"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+          <ExpansionPanel
+            className={classes.panel}
+            expanded={expandedState === "styling"}
+            onChange={handleExpansion("styling")}
+          >
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "9%",
+                  justifyContent: "space-between",
+                }}
+              >
+                Styling <PaletteIcon />
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "0 auto",
+              }}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#244C7D",
+                }}
+              >
+                LESS
+                <i
+                  class="fab fa-less"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#543B79",
+                }}
+              >
+                Bootstrap & ReactStrap
+                <i
+                  class="fab fa-bootstrap"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#E76C72",
+                }}
+              >
+                Materialize CSS
+                <i
+                  class="fas fa-scroll"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#007DC5",
+
+                  width: "12%",
+                }}
+              >
+                Material-UI
+                <img
+                  src="https://material-ui.com/static/logo.png"
+                  style={{ marginTop: "10px", width: "30%" }}
+                ></img>
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+          <ExpansionPanel
+            className={classes.panel}
+            expanded={expandedState === "testing"}
+            onChange={handleExpansion("testing")}
+          >
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "9.5%",
+                  justifyContent: "space-between",
+                }}
+              >
+                Testing <CreateIcon />
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                margin: "0 auto",
+              }}
+            >
+              <Typography style={{ color: "blue", fontSize: "1.5rem" }}>
+                Cypress.io
+              </Typography>
+              <Typography style={{ color: "#954059", fontSize: "1.5rem" }}>
+                Jest
+              </Typography>
+              <Typography style={{ color: "#F55961", fontSize: "1.5rem" }}>
+                Enzyme
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+          <ExpansionPanel
+            className={classes.panel}
+            expanded={expandedState === "backend"}
+            onChange={handleExpansion("backend")}
+          >
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "24%",
+                  justifyContent: "space-between",
+                }}
+              >
+                Back End Development <StorageIcon />
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "0 auto",
+              }}
+            >
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#244C7D",
+                }}
+              >
+                LESS
+                <i
+                  class="fab fa-less"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#543B79",
+                }}
+              >
+                Bootstrap & ReactStrap
+                <i
+                  class="fab fa-bootstrap"
+                  style={{ marginTop: "10px", fontSize: "2rem" }}
+                ></i>
+              </Typography>
+              <Typography
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "#E76C72",
+                }}
+              >
+                Materialize CSS
+                <i
+                  class="fas fa-scroll"
                   style={{ marginTop: "10px", fontSize: "2rem" }}
                 ></i>
               </Typography>

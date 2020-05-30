@@ -16,11 +16,10 @@ const useStyles = makeStyles({
 });
 
 const App = () => {
-  const hideSideBar = useMediaQuery({ query: "(min-width: 1650px" });
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {hideSideBar && <Sidebar />}
+<Sidebar />
       <MainWindow />
     </div>
   );

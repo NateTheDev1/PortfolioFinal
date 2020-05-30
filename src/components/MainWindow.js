@@ -49,7 +49,7 @@ const useStyles = makeStyles({
       textDecoration: "none",
     },
 
-    "@media (max-width: 1650px)": {
+    "@media (max-width: 1400px)": {
       marginLeft: "0",
       marginRight: 0,
     },

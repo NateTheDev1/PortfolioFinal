@@ -18,6 +18,7 @@ import {
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
+  Paper,
 } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -31,6 +32,8 @@ import ComputerIcon from "@material-ui/icons/Computer";
 import PaletteIcon from "@material-ui/icons/Palette";
 import CreateIcon from "@material-ui/icons/Create";
 import StorageIcon from "@material-ui/icons/Storage";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import myResume from "../NathanielRichards.pdf";
 
 const useStyles = makeStyles({
   root: {
@@ -145,6 +148,45 @@ const useStyles = makeStyles({
     backgroundColor: "#292929",
     color: "white",
     marginBottom: "2%",
+  },
+  contactresume: {
+    marginTop: "5%",
+    marginBottom: "5%",
+    display: "flex",
+
+    flexDirection: "column",
+  },
+  contactDiv: {
+    height: "100%",
+    marginBottom: "10%",
+    marginLeft: "5%",
+    "& hr": {
+      color: "black",
+      width: "25%",
+      height: "2px",
+      backgroundColor: "white",
+      margin: "0",
+    },
+  },
+  contact: {
+    boxSizing: "border-box",
+    padding: "20px 2%",
+    width: "55%",
+    color: "white",
+    backgroundColor: "#292929",
+  },
+  resume: {
+    marginTop: "3%",
+    boxSizing: "border-box",
+    padding: "20px 2%",
+    width: "30%",
+    color: "white",
+    backgroundColor: "#292929",
+
+    "& a": {
+      textDecoration: "none",
+      color: "rgb(249,168,38)",
+    },
   },
 });
 
@@ -797,6 +839,57 @@ const MainWindow = ({ page, setPage }) => {
           >
             Next
             <ArrowRightIcon />
+          </Fab>
+        </a>
+      </Container>
+      <Container maxWidth="md" className={classes.contactDiv}>
+        <h2 style={{ color: "#F9A825" }}>Contact & Resume</h2>
+        <hr />
+        <div className={classes.contactresume}>
+          <Paper className={classes.contact} id="contact" elevation={3}>
+            <h3>Contact Me</h3>
+            <hr style={{ width: "60%" }} />
+            <h4>
+              Email:
+              <a
+                href="mailto:nathaniel.richards@lambdastudents.com"
+                style={{
+                  color: "#F9A825",
+                  textDecoration: "underline",
+                  marginLeft: "3%",
+                }}
+              >
+                nathaniel.richards@lambdastudents.com
+              </a>
+            </h4>
+            <h4>
+              Phone:
+              <a
+                href="tel:231-215-4678"
+                style={{
+                  color: "#F9A825",
+                  textDecoration: "underline",
+                  marginLeft: "3%",
+                }}
+              >
+                231-215-4678
+              </a>
+            </h4>
+          </Paper>
+          <div className={classes.resume} id="resume">
+            <h3>Resume</h3>
+            <a href={myResume}>Resume</a>
+          </div>
+        </div>
+        <a href="#home" onClick={() => setPage("home")}>
+          <Fab
+            aria-label="next"
+            variant="extended"
+            className={classes.next}
+            size="medium"
+          >
+            Top
+            <ArrowUpwardIcon />
           </Fab>
         </a>
       </Container>

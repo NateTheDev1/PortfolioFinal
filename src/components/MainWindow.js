@@ -259,7 +259,7 @@ const MainWindow = ({ page, setPage }) => {
         <h1 id="intro-text">
           Hello, <br />
           My name is Nathaniel Richards and I am a <br />
-          <span>Fullstack Web Developer</span>
+          <span>Software Engineer</span>
         </h1>
         <a href="#about" onClick={() => setPage("about")}>
           <Fab

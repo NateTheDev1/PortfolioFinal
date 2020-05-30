@@ -16,6 +16,12 @@ const useStyles = makeStyles({
     justifyContent: "center",
     padding: "0px 4.25%",
 
+    // "@media (max-width: 1650px)": {
+    //   display: "none !important",
+    //   width: "0%",
+    //   height: "0%",
+    // },
+
     "& h2": {
       fontWeight: "700",
       marginBottom: "0",

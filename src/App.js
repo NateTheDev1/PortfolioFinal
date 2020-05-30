@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Sidebar from "./components/Sidebar";
 import { makeStyles } from "@material-ui/core";
 import MainWindow from "./components/MainWindow";
+import MediaQuery from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 const useStyles = makeStyles({
   root: {
@@ -14,10 +16,11 @@ const useStyles = makeStyles({
 });
 
 const App = () => {
+  const hideSideBar = useMediaQuery({ query: "(min-width: 1650px" });
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Sidebar />
+      {hideSideBar && <Sidebar />}
       <MainWindow />
     </div>
   );

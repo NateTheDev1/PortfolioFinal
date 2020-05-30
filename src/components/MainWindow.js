@@ -38,7 +38,7 @@ import myResume from "../NathanielRichards.pdf";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#181818",
-    width: "100%",
+    width: "100vw",
     height: "100%",
     color: "white",
     marginLeft: "17.5%",
@@ -48,15 +48,31 @@ const useStyles = makeStyles({
     "& a": {
       textDecoration: "none",
     },
+
+    "@media (max-width: 1650px)": {
+      marginLeft: "0",
+      marginRight: 0,
+    },
   },
   home: {
     marginLeft: "5%",
     fontWeight: "700",
     marginBottom: "10%",
+    "@media (max-width: 1020px)": {
+      marginLeft: "0",
+    },
     "& h1": {
       marginTop: "25%",
       fontSize: "2.5rem",
       lineHeight: "3",
+      "@media (max-width: 1020px)": {
+        marginTop: "15%",
+        width: "100%",
+        fontSize: "1.5rem",
+      },
+      "@media (max-width: 900px)": {
+        fontSize: "1rem",
+      },
 
       "& span": {
         color: "#F9A825",
@@ -69,6 +85,9 @@ const useStyles = makeStyles({
   about: {
     marginLeft: "5%",
     marginBottom: "10%",
+    "@media (max-width: 1020px)": {
+      marginLeft: "0",
+    },
     "& hr": {
       color: "black",
       width: "25%",
@@ -85,9 +104,17 @@ const useStyles = makeStyles({
   aboutP: {
     width: "70%",
     lineHeight: 2,
+    "@media (max-width: 1020px)": {
+      marginLeft: "0",
+      width: "100%",
+    },
   },
   img: {
     width: "30%",
+
+    "@media (max-width: 1020px)": {
+      display: "none",
+    },
   },
   meBest: {
     borderRadius: "50%",
@@ -97,6 +124,10 @@ const useStyles = makeStyles({
   projects: {
     marginBottom: "10%",
     marginLeft: "5%",
+
+    "@media (max-width: 1020px)": {
+      marginLeft: "0",
+    },
 
     "& hr": {
       color: "black",
@@ -120,6 +151,10 @@ const useStyles = makeStyles({
   },
   card: {
     maxWidth: 280,
+    "@media (max-width: 1020px)": {
+      marginTop: "5%",
+      maxWidth: "100%",
+    },
   },
   dialog: {
     "& .MuiDialog-paper": {
@@ -138,6 +173,10 @@ const useStyles = makeStyles({
       height: "2px",
       backgroundColor: "white",
       margin: "0",
+    },
+
+    "@media (max-width: 1020px)": {
+      display: "none",
     },
   },
   expandable: {
@@ -160,6 +199,10 @@ const useStyles = makeStyles({
     height: "100%",
     marginBottom: "10%",
     marginLeft: "5%",
+
+    "@media (max-width: 1020px)": {
+      marginLeft: "0",
+    },
     "& hr": {
       color: "black",
       width: "25%",
@@ -174,6 +217,9 @@ const useStyles = makeStyles({
     width: "55%",
     color: "white",
     backgroundColor: "#292929",
+    "@media (max-width: 1020px)": {
+      width: "100%",
+    },
   },
   resume: {
     marginTop: "3%",
@@ -182,6 +228,10 @@ const useStyles = makeStyles({
     width: "30%",
     color: "white",
     backgroundColor: "#292929",
+
+    "@media (max-width: 1020px)": {
+      width: "100%",
+    },
 
     "& a": {
       textDecoration: "none",
@@ -849,32 +899,27 @@ const MainWindow = ({ page, setPage }) => {
           <Paper className={classes.contact} id="contact" elevation={3}>
             <h3>Contact Me</h3>
             <hr style={{ width: "60%" }} />
-            <h4>
-              Email:
-              <a
-                href="mailto:nathaniel.richards@lambdastudents.com"
-                style={{
-                  color: "#F9A825",
-                  textDecoration: "underline",
-                  marginLeft: "3%",
-                }}
-              >
-                nathaniel.richards@lambdastudents.com
-              </a>
-            </h4>
-            <h4>
-              Phone:
-              <a
-                href="tel:231-215-4678"
-                style={{
-                  color: "#F9A825",
-                  textDecoration: "underline",
-                  marginLeft: "3%",
-                }}
-              >
-                231-215-4678
-              </a>
-            </h4>
+            <h4>Email:</h4>
+            <a
+              href="mailto:nathaniel.richards@lambdastudents.com"
+              style={{
+                color: "#F9A825",
+                textDecoration: "underline",
+                fontSize: "0.9rem",
+              }}
+            >
+              nathaniel.richards@lambdastudents.com
+            </a>
+            <h4>Phone:</h4>
+            <a
+              href="tel:231-215-4678"
+              style={{
+                color: "#F9A825",
+                textDecoration: "underline",
+              }}
+            >
+              231-215-4678
+            </a>
           </Paper>
           <div className={classes.resume} id="resume">
             <h3>Resume</h3>

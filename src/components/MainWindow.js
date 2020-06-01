@@ -81,6 +81,9 @@ const useStyles = makeStyles({
   },
   next: {
     backgroundColor: "white",
+    "@media (max-width: 1380px)": {
+      display: "none",
+    },
   },
   about: {
     marginLeft: "5%",
@@ -236,6 +239,11 @@ const useStyles = makeStyles({
     "& a": {
       textDecoration: "none",
       color: "rgb(249,168,38)",
+    },
+  },
+  nextQuery: {
+    "@media (max-width: 1380px)": {
+      display: "none",
     },
   },
 });
@@ -515,7 +523,11 @@ const MainWindow = ({ page, setPage }) => {
             </DialogActions>
           </Dialog>
         </div>
-        <a href="#skills" onClick={() => setPage("skills")}>
+        <a
+          href="#skills"
+          onClick={() => setPage("skills")}
+          className={classes.nextQuery}
+        >
           <Fab
             aria-label="next"
             variant="extended"
@@ -919,6 +931,16 @@ const MainWindow = ({ page, setPage }) => {
               }}
             >
               231-215-4678
+            </a>
+            <h4>LinkedIn:</h4>
+            <a
+              href="https://www.linkedin.com/in/nathaniel-richards-dev/"
+              style={{
+                color: "#F9A825",
+                textDecoration: "underline",
+              }}
+            >
+              Nathaniel Richards LinkedIn
             </a>
           </Paper>
           <div className={classes.resume} id="resume">

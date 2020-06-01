@@ -252,6 +252,7 @@ const MainWindow = ({ page, setPage }) => {
   const [dialogState, setDialogState] = useState({
     professor: false,
     urbanize: false,
+    shortman: false,
   });
 
   const [expandedState, setExpandedState] = useState("core");
@@ -516,6 +517,104 @@ const MainWindow = ({ page, setPage }) => {
                 autoFocus
                 onClick={() =>
                   setDialogState({ ...dialogState, urbanize: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "#EF5B25" }}
+                component="img"
+                className={classes.media}
+                image={require("../images/shortmanpreview.PNG")}
+                title="Shortman URL Shortner"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Shortman URL Shortner
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  A web app created using the Clean URL API Allows the user to
+                  provide a URL and it returns a shortened URL.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, shortman: true })
+                }
+              >
+                View Full
+              </Button>
+              <a href="https://shortman.netlify.app/" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, shortman: false })}
+            open={dialogState.shortman}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, shortman: false })
+              }
+            >
+              Shortman URL Shortner
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Shortman was a personal project created using the Clean URL API.
+                The duration of this project took 1 day and was styled using
+                Material-UI and CSS. Made with the 'React' Framework.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                It uses the API and Redux to handle requests back and forth
+                between the App and API.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "40%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/React-Redux-App"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, shortman: false })
                 }
               >
                 Done

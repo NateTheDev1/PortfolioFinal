@@ -25,6 +25,7 @@ import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import meBest from "../images/mebest.jpg";
 import professorPreview from "../images/betterprofessorpreview.png";
 import quicknotePreview from "../images/quicknotepreview.png";
+import bootcampuiPreview from "../images/bootcampuilogo.png";
 import { setPage } from "../actions/actions";
 import { connect } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -255,6 +256,7 @@ const MainWindow = ({ page, setPage }) => {
     urbanize: false,
     shortman: false,
     quicknote: false,
+    bootcampui: false,
   });
 
   const [expandedState, setExpandedState] = useState("core");
@@ -623,6 +625,8 @@ const MainWindow = ({ page, setPage }) => {
               </Button>
             </DialogActions>
           </Dialog>
+        </div>
+        <div className={classes.cardDiv}>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
@@ -705,7 +709,7 @@ const MainWindow = ({ page, setPage }) => {
             </DialogContent>
             <DialogActions>
               <a
-                href="https://github.com/NateTheDev1/React-Redux-App"
+                href="https://github.com/NateTheDev1/quick-note-app"
                 style={{ textDecoration: "none" }}
                 target="_blank"
               >
@@ -716,6 +720,111 @@ const MainWindow = ({ page, setPage }) => {
                 autoFocus
                 onClick={() =>
                   setDialogState({ ...dialogState, shortman: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "white" }}
+                component="img"
+                className={classes.media}
+                image={bootcampuiPreview}
+                title="Bootcamp-UI"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Bootcamp-UI
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  As a Team Leader, I created a UI component library for new
+                  students to quickly create UI prototypes.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, bootcampui: true })
+                }
+              >
+                View Full
+              </Button>
+              <a
+                href="https://www.npmjs.com/package/bootcamp-ui"
+                target="_blank"
+              >
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() =>
+              setDialogState({ ...dialogState, bootcampui: false })
+            }
+            open={dialogState.bootcampui}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, bootcampui: false })
+              }
+            >
+              QuickNote Web App
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Bootcamp-UI is a prototyping based component library made for
+                easy and quick UI development in React. Made for bootcamp
+                students by a bootcamp student. I became a team leader at my
+                school and to help the group of students I managed, I created a
+                component library to help them while they were just starting out
+                in React to easily create good looking UI.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                Styled Components, Styleguidist, CSS, React
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "40%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/bootcamp-ui"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, bootcampui: false })
                 }
               >
                 Done

@@ -24,6 +24,7 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import meBest from "../images/mebest.jpg";
 import professorPreview from "../images/betterprofessorpreview.png";
+import quicknotePreview from "../images/quicknotepreview.png";
 import { setPage } from "../actions/actions";
 import { connect } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -253,6 +254,7 @@ const MainWindow = ({ page, setPage }) => {
     professor: false,
     urbanize: false,
     shortman: false,
+    quicknote: false,
   });
 
   const [expandedState, setExpandedState] = useState("core");
@@ -583,6 +585,105 @@ const MainWindow = ({ page, setPage }) => {
               <Typography gutterBottom>
                 It uses the API and Redux to handle requests back and forth
                 between the App and API.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "40%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/React-Redux-App"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, shortman: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "black" }}
+                component="img"
+                className={classes.media}
+                image={quicknotePreview}
+                title="QuickNote"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  QuickNote App
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  My first fullstack web app made in about around 4 days. I am
+                  the creator of both the frontend and backend logic.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, quicknote: true })
+                }
+              >
+                View Full
+              </Button>
+              <a href="https://quick-note.vercel.app/" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, quicknote: false })}
+            open={dialogState.quicknote}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, quicknote: false })
+              }
+            >
+              QuickNote Web App
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                QuickNote is a quick and easy solution to the many note taking
+                applications you are currently signed up for. Here you just need
+                to sign up, login and start creating simple notes to display on
+                your board.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                Backend Stack: Bcrypt, JWT, Express, MongoDB, Mongoose Frontend
+                Stack: React, MaterialUI, Redux
               </Typography>
               <br />
 

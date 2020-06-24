@@ -35,7 +35,7 @@ import PaletteIcon from "@material-ui/icons/Palette";
 import CreateIcon from "@material-ui/icons/Create";
 import StorageIcon from "@material-ui/icons/Storage";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import myResume from "../NathanielRichards.pdf";
+import myResume from "../images/resume.pdf";
 
 const useStyles = makeStyles({
   root: {

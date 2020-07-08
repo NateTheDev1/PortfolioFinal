@@ -257,6 +257,7 @@ const MainWindow = ({ page, setPage }) => {
     shortman: false,
     quicknote: false,
     bootcampui: false,
+    tweeter: false,
   });
 
   const [expandedState, setExpandedState] = useState("core");
@@ -330,18 +331,19 @@ const MainWindow = ({ page, setPage }) => {
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "white" }}
                 component="img"
                 className={classes.media}
-                image={require("../images/betterprofessorpreview.png")}
-                title="Better Professor Marketing Site"
+                image="https://i.gyazo.com/130eb2bac73a24942fd65fd52cfc193a.png"
+                title="Tweeter"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Better Professor
+                  Tweeter
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  A marketing site built for a school project. The site was
-                  built using HTML, CSS, and LESS.
+                  A clone of the app Twitter. I created this in a little under 2
+                  weeks and have my friends and family using it.
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -350,12 +352,12 @@ const MainWindow = ({ page, setPage }) => {
                 size="small"
                 className={classes.btn}
                 onClick={() =>
-                  setDialogState({ ...dialogState, professor: true })
+                  setDialogState({ ...dialogState, tweeter: true })
                 }
               >
                 View Full
               </Button>
-              <a href="https://gobetterprofessor.netlify.app" target="_blank">
+              <a href="https://tweeter-app.vercel.app/" target="_blank">
                 <Button size="small" className={classes.btn}>
                   View Project
                 </Button>
@@ -364,29 +366,25 @@ const MainWindow = ({ page, setPage }) => {
           </Card>
           <Dialog
             className={classes.dialog}
-            onClose={() => setDialogState({ ...dialogState, professor: false })}
-            open={dialogState.professor}
+            onClose={() => setDialogState({ ...dialogState, tweeter: false })}
+            open={dialogState.tweeter}
             fullWidth={true}
             maxWidth="sm"
           >
             <DialogTitle
-              onClose={() =>
-                setDialogState({ ...dialogState, professor: false })
-              }
+              onClose={() => setDialogState({ ...dialogState, tweeter: false })}
             >
-              Better Professor Marketing Site
+              Tweeter
             </DialogTitle>
             <DialogContent dividers>
               <Typography gutterBottom>
-                Better Professor was made during a build week for an app called
-                "Better Professor", an app allowing professors and students to
-                communicate better.
+                Tweeter is a clone of the popular app Twitter. I tried to make
+                it a clone as well as my own. I added a statistic feature as
+                well as posts, retweets, profiles and more.
               </Typography>
               <br />
               <Typography gutterBottom>
-                I worked with my team on choosing certain colors, fonts, and
-                styles to build the marketing site. I have never been a designer
-                but I received experience using Figma to design this site.
+                React, Styled Components, Node, MongoDB, ANTD, Cloudinary
               </Typography>
               <br />
 
@@ -395,18 +393,20 @@ const MainWindow = ({ page, setPage }) => {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  width: "30%",
+                  width: "40%",
                 }}
               >
                 <Typography gutterBottom>Technologies:</Typography>
                 <i class="fab fa-html5"></i>
                 <i class="fab fa-css3-alt"></i>
-                <i class="fab fa-less"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
               </div>
             </DialogContent>
             <DialogActions>
               <a
-                href="https://github.com/NateTheDev1/better-professor"
+                href="https://github.com/NateTheDev1/tweeter-app"
                 style={{ textDecoration: "none" }}
                 target="_blank"
               >
@@ -416,13 +416,14 @@ const MainWindow = ({ page, setPage }) => {
                 style={{ color: "white" }}
                 autoFocus
                 onClick={() =>
-                  setDialogState({ ...dialogState, professor: false })
+                  setDialogState({ ...dialogState, tweeter: false })
                 }
               >
                 Done
               </Button>
             </DialogActions>
           </Dialog>
+
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
@@ -627,6 +628,102 @@ const MainWindow = ({ page, setPage }) => {
           </Dialog>
         </div>
         <div className={classes.cardDiv}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                className={classes.media}
+                image={require("../images/betterprofessorpreview.png")}
+                title="Better Professor Marketing Site"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Better Professor
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  A marketing site built for a school project. The site was
+                  built using HTML, CSS, and LESS.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, professor: true })
+                }
+              >
+                View Full
+              </Button>
+              <a href="https://gobetterprofessor.netlify.app" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, professor: false })}
+            open={dialogState.professor}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, professor: false })
+              }
+            >
+              Better Professor Marketing Site
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Better Professor was made during a build week for an app called
+                "Better Professor", an app allowing professors and students to
+                communicate better.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                I worked with my team on choosing certain colors, fonts, and
+                styles to build the marketing site. I have never been a designer
+                but I received experience using Figma to design this site.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "30%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-less"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/better-professor"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, professor: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia

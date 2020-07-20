@@ -1326,7 +1326,7 @@ const MainWindow = ({ page, setPage }) => {
                 fontSize: "0.9rem",
               }}
             >
-              nathaniel.richards@lambdastudents.com
+              nathaniel-richards@lambdastudents.com
             </a>
             <h4>Phone:</h4>
             <a

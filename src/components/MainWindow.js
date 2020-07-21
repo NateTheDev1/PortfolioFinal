@@ -1319,14 +1319,14 @@ const MainWindow = ({ page, setPage }) => {
             <hr style={{ width: "60%" }} />
             <h4>Email:</h4>
             <a
-              href="mailto:nathaniel.richards@lambdastudents.com"
+              href="mailto:nathaniel-richards@lambdastudents.com"
               style={{
                 color: "#F9A825",
                 textDecoration: "underline",
                 fontSize: "0.9rem",
               }}
             >
-              nathaniel.richards@lambdastudents.com
+              nathaniel-richards@lambdastudents.com
             </a>
             <h4>Phone:</h4>
             <a

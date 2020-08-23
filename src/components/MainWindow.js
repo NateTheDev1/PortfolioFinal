@@ -26,6 +26,7 @@ import meBest from "../images/mebest.jpg";
 import professorPreview from "../images/betterprofessorpreview.png";
 import quicknotePreview from "../images/quicknotepreview.png";
 import bootcampuiPreview from "../images/bootcampuilogo.png";
+import mroastPreview from "../images/mroast_preview.PNG";
 import { setPage } from "../actions/actions";
 import { connect } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -258,6 +259,7 @@ const MainWindow = ({ page, setPage }) => {
     quicknote: false,
     bootcampui: false,
     tweeter: false,
+    mroast: false,
   });
 
   const [expandedState, setExpandedState] = useState("core");
@@ -328,6 +330,84 @@ const MainWindow = ({ page, setPage }) => {
         <h2 style={{ color: "#F9A825" }}>My Projects</h2>
         <hr />
         <div className={classes.cardDiv}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "white" }}
+                component="img"
+                className={classes.media}
+                image={mroastPreview}
+                title="Morning Roast"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Morning Roast
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Morning Roast is a full stack coffee ordering application with
+                  payments, users, orders, and a products database
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() => setDialogState({ ...dialogState, mroast: true })}
+              >
+                View Full
+              </Button>
+              <a href="https://morningroast.vercel.app/" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, mroast: false })}
+            open={dialogState.mroast}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() => setDialogState({ ...dialogState, mroast: false })}
+            >
+              Morning Roast
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Morning Roast is a full stack coffee Ordering app built in 4
+                days, with a well oiled mobile design, I have integrated Stripe
+                payments as well as order history.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                React, Apollo Client, Apollo Server, Postgres, Express, Node,
+                Typescript, Material-UI, CSS, Stripe
+              </Typography>
+              <br />
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/morningroast-client"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, mroast: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
@@ -424,110 +504,6 @@ const MainWindow = ({ page, setPage }) => {
             </DialogActions>
           </Dialog>
 
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                style={{ objectFit: "scale-down", backgroundColor: "black" }}
-                component="img"
-                className={classes.media}
-                image={require("../images/urbanizepreview.PNG")}
-                title="Better Professor Marketing Site"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Urbanize Web App
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  A web app created using an unofficial Urban Dictionary API.
-                  Allows the user to search for definitions and save them.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button
-                size="small"
-                className={classes.btn}
-                onClick={() =>
-                  setDialogState({ ...dialogState, urbanize: true })
-                }
-              >
-                View Full
-              </Button>
-              <a href="https://urbanize.netlify.app/" target="_blank">
-                <Button size="small" className={classes.btn}>
-                  View Project
-                </Button>
-              </a>
-            </CardActions>
-          </Card>
-          <Dialog
-            className={classes.dialog}
-            onClose={() => setDialogState({ ...dialogState, urbanize: false })}
-            open={dialogState.urbanize}
-            fullWidth={true}
-            maxWidth="sm"
-          >
-            <DialogTitle
-              onClose={() =>
-                setDialogState({ ...dialogState, urbanize: false })
-              }
-            >
-              Urbanize Web App
-            </DialogTitle>
-            <DialogContent dividers>
-              <Typography gutterBottom>
-                Urbanize was a personal project created using the unofficial
-                Urban Dictionary API. I found the API while looking for another
-                fun project to build out. This project took a duration of around
-                2 days. This project was built using the framework 'React'.
-              </Typography>
-              <br />
-              <Typography gutterBottom>
-                It uses localStorage to persist user data and is created to be a
-                'no-setup' style app with zero account creation. The user can
-                search for definitions as well as save the ones they like most
-                to their library. After receiving feedback about how some users
-                do not know any 'urban' words, I created a random word generator
-                to automatically search 1 word out of a collection sent back
-                from the API.
-              </Typography>
-              <br />
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  width: "40%",
-                }}
-              >
-                <Typography gutterBottom>Technologies:</Typography>
-                <i class="fab fa-html5"></i>
-                <i class="fab fa-css3-alt"></i>
-                <i class="fab fa-react"></i>
-                <i class="fas fa-database"></i>
-                <i class="fab fa-js-square"></i>
-              </div>
-            </DialogContent>
-            <DialogActions>
-              <a
-                href="https://github.com/NateTheDev1/urbanize"
-                style={{ textDecoration: "none" }}
-                target="_blank"
-              >
-                <Button style={{ color: "white" }}>GitHub</Button>
-              </a>
-              <Button
-                style={{ color: "white" }}
-                autoFocus
-                onClick={() =>
-                  setDialogState({ ...dialogState, urbanize: false })
-                }
-              >
-                Done
-              </Button>
-            </DialogActions>
-          </Dialog>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
@@ -876,7 +852,7 @@ const MainWindow = ({ page, setPage }) => {
                 setDialogState({ ...dialogState, bootcampui: false })
               }
             >
-              QuickNote Web App
+              Bootcamp-UI
             </DialogTitle>
             <DialogContent dividers>
               <Typography gutterBottom>
@@ -922,6 +898,110 @@ const MainWindow = ({ page, setPage }) => {
                 autoFocus
                 onClick={() =>
                   setDialogState({ ...dialogState, bootcampui: false })
+                }
+              >
+                Done
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Card className={classes.card} style={{ marginTop: "3%" }}>
+            <CardActionArea>
+              <CardMedia
+                style={{ objectFit: "scale-down", backgroundColor: "black" }}
+                component="img"
+                className={classes.media}
+                image={require("../images/urbanizepreview.PNG")}
+                title="Better Professor Marketing Site"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Urbanize Web App
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  A web app created using an unofficial Urban Dictionary API.
+                  Allows the user to search for definitions and save them.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button
+                size="small"
+                className={classes.btn}
+                onClick={() =>
+                  setDialogState({ ...dialogState, urbanize: true })
+                }
+              >
+                View Full
+              </Button>
+              <a href="https://urbanize.netlify.app/" target="_blank">
+                <Button size="small" className={classes.btn}>
+                  View Project
+                </Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Dialog
+            className={classes.dialog}
+            onClose={() => setDialogState({ ...dialogState, urbanize: false })}
+            open={dialogState.urbanize}
+            fullWidth={true}
+            maxWidth="sm"
+          >
+            <DialogTitle
+              onClose={() =>
+                setDialogState({ ...dialogState, urbanize: false })
+              }
+            >
+              Urbanize Web App
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+                Urbanize was a personal project created using the unofficial
+                Urban Dictionary API. I found the API while looking for another
+                fun project to build out. This project took a duration of around
+                2 days. This project was built using the framework 'React'.
+              </Typography>
+              <br />
+              <Typography gutterBottom>
+                It uses localStorage to persist user data and is created to be a
+                'no-setup' style app with zero account creation. The user can
+                search for definitions as well as save the ones they like most
+                to their library. After receiving feedback about how some users
+                do not know any 'urban' words, I created a random word generator
+                to automatically search 1 word out of a collection sent back
+                from the API.
+              </Typography>
+              <br />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "40%",
+                }}
+              >
+                <Typography gutterBottom>Technologies:</Typography>
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+                <i class="fas fa-database"></i>
+                <i class="fab fa-js-square"></i>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <a
+                href="https://github.com/NateTheDev1/urbanize"
+                style={{ textDecoration: "none" }}
+                target="_blank"
+              >
+                <Button style={{ color: "white" }}>GitHub</Button>
+              </a>
+              <Button
+                style={{ color: "white" }}
+                autoFocus
+                onClick={() =>
+                  setDialogState({ ...dialogState, urbanize: false })
                 }
               >
                 Done
